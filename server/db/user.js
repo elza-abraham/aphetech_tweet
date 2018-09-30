@@ -12,8 +12,7 @@ const User = db.define('user', {
   },
   imgUrl: {
     type: Sequelize.STRING
-  },
-
+  }
 })
 
 module.exports = User

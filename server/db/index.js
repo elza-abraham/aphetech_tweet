@@ -1,12 +1,14 @@
 const db = require('./db')
 const Tweet = require('./tweet')
-// const User = require('./user')
+const User = require('./user')
 
-// Tweet.belongsTo(User)
-// User.hasMany(Tweet)
+//table associations
+
+Tweet.belongsTo(User)
+User.hasMany(Tweet)
 
 module.exports = {
   db,
   Tweet,
-  // User
+  User
 }
