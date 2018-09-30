@@ -7,6 +7,9 @@ const User = require('./user')
 Tweet.belongsTo(User)
 User.hasMany(Tweet)
 
+User.belongsToMany(User, { as: 'children', foreignKey: 'followId', through: 'follow' });
+User.belongsToMany(User, { as: 'parents', foreignKey: 'followerId', through: 'follow' });
+
 module.exports = {
   db,
   Tweet,
