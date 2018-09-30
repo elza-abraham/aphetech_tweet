@@ -1,18 +1,16 @@
 #!/usr/bin/env node
 
-const {db, Todo} = require('../server/db')
+const {db, Tweet} = require('../server/db')
 
 const seed = async () => {
   await db.sync({force: true})
 
-  await Todo.create({
-    taskName: 'Buy dog food',
-    assignee: 'Cody'
+  await Tweet.create({
+    tweet: 'First tweet'
   })
 
-  await Todo.create({
-    taskName: 'Take over world',
-    assignee: 'Cody'
+  await Tweet.create({
+    tweet: 'Second Tweet'
   })
 
   db.close()

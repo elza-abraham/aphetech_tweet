@@ -1,15 +1,19 @@
 const Sequelize = require('sequelize')
 const db = require('./db')
 
-const Todo = db.define('todos', {
-  taskName: {
+const User = db.define('user', {
+  name: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  assignee: {
+  handle: {
     type: Sequelize.STRING,
     allowNull: false
-  }
+  },
+  imgUrl: {
+    type: Sequelize.STRING
+  },
+
 })
 
-module.exports = Todo
+module.exports = User

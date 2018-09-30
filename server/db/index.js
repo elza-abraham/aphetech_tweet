@@ -1,7 +1,12 @@
 const db = require('./db')
-const Todo = require('./Todo')
+const Tweet = require('./tweet')
+// const User = require('./user')
+
+// Tweet.belongsTo(User)
+// User.hasMany(Tweet)
 
 module.exports = {
   db,
-  Todo
+  Tweet,
+  // User
 }
