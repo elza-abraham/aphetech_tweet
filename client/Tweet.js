@@ -7,8 +7,8 @@ const Tweet = (props) => {
   return (
     <div key={tweet.id}>
       <div>
-          <h3>{tweet.tweet}</h3>
-          <p>{moment(tweet.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</p>
+        <h5><i>{moment(tweet.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</i></h5>
+        <p>{tweet.tweet}</p>
       </div>
     </div>
   )

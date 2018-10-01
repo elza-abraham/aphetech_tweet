@@ -2,14 +2,16 @@ import React from 'react'
 
 const TweetForm = (props) => {
   return (
-    <form onSubmit= {props.handleSubmit}>
+    <div>
+      <form onSubmit= {props.handleSubmit}>
         <label>Tweet:</label>
-        <div><textarea name="tweet" onChange={props.handleChange} value={props.tweet} />
+        <div><textarea maxLength = "255" name="tweet" onChange={props.handleChange} value={props.tweet} />
         <button type= "submit" disabled= {!(props.tweet)}>Post</button></div>
         {
           props.errorMessage && <div className="error">{props.errorMessage}</div>
         }
       </form>
+    </div>
   )
 }
 
