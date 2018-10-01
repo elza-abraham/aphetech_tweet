@@ -19,7 +19,6 @@ export default class AddTweet extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(this.state)
     try {
       const res = await axios.post('/api/main', this.state)
       this.props.addTweet(res.data);// a method passed down from parent MainPage

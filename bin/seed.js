@@ -13,6 +13,14 @@ const users = await Promise.all([
   User.create({
     name: 'Second',
     handle: 'SecondHandle'
+  }),
+  User.create({
+    name: 'Third',
+    handle: 'ThirdHandle'
+  }),
+  User.create({
+    name: 'Fourth',
+    handle: 'FourthHandle'
   })
 ])
 
