@@ -4,12 +4,13 @@ const TweetForm = (props) => {
   return (
     <div>
       <form onSubmit= {props.handleSubmit}>
-        <label>Tweet:</label>
-        <div><textarea maxLength = "255" name="tweet" onChange={props.handleChange} value={props.tweet} />
-        <button type= "submit" disabled= {!(props.tweet)}>Post</button></div>
-        {
-          props.errorMessage && <div className="error">{props.errorMessage}</div>
-        }
+        <div className = "tweet-form">
+          <textarea  placeholder="What's happening?" maxLength = "255" name="tweet" onChange={props.handleChange} value={props.tweet} />
+          <button type= "submit" disabled= {!(props.tweet)}>Post</button>
+          {
+            props.errorMessage && <div className="error">{props.errorMessage}</div>
+          }
+        </div>
       </form>
     </div>
   )

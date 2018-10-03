@@ -9,18 +9,21 @@ export default class MainPage extends Component {
     super()
     this.state = {
       tweets: [],
-      user: {}
+      user: {},
+      userTweetLength: 0
     }
   }
 
   async componentDidMount () {
+    //AJAX call to get tweets of user and people whom he/she is following
     const resTweet = await axios.get('/api/main/feed');
-    //user data also can be included here.
-    //console.log(res.data[0].user)
 
+    //AJAX call to get profile with included tweets of user only
     const resUser = await axios.get('/api/main/profile')
+
     this.setState({
       tweets: resTweet.data,
+      userTweetLength: resUser.data.tweets.length,
       user: resUser.data
     });
   }
@@ -29,7 +32,8 @@ export default class MainPage extends Component {
     let tweetsTemp = this.state.tweets;
     tweetsTemp.unshift(tweet)
     this.setState({
-      tweets: tweetsTemp
+      tweets: tweetsTemp,
+      userTweetLength:  this.state.userTweetLength + 1
     });
   }
 
@@ -39,12 +43,15 @@ export default class MainPage extends Component {
 
   render () {
     return (
-      <div>
-        <Profile user ={this.state.user}  tweetCount = {this.getTweetCount()} />
-        <AddTweet addTweet={this.addTweet} />
-        {
-          this.state.tweets.map(tweet => <Tweet tweet={tweet} key={tweet.id} />)
-        }
+      <div id="main">
+        <Profile user ={this.state.user} userTweetLength = {this.state.userTweetLength} tweetCount = {this.getTweetCount()} />
+        <div id = "tweet">
+          <AddTweet addTweet={this.addTweet} />
+          {
+            //separate component for each tweet later if we want to handle(expand, delete) each tweets
+            this.state.tweets.map(tweet => <Tweet tweet={tweet} key={tweet.id} />)
+          }
+        </div>
       </div>
     );
   }
