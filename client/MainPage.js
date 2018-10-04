@@ -14,12 +14,13 @@ export default class MainPage extends Component {
   }
 
   getAllTweets = async () => {
+    //AJAX call to get tweets of user and people whom he/she is following
     const resTweet = await axios.get('/api/main/feed');
     return resTweet.data;
   }
 
   async componentDidMount () {
-    //AJAX call to get tweets of user and people whom he/she is following
+
     const tweets = await this.getAllTweets()
 
     //AJAX call to get current user profile with included tweets of user only
