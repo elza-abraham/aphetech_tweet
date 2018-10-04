@@ -15,9 +15,9 @@ const Profile = (props) => {
         <img src={user.imgUrl} alt="Profile pic" width="10" height="10" />{user.name}
       </div>
       <hr />
-      {user.tweets ? user.tweets.length : 0}{tweets}
-      {user.follower ? user.follower.length : ' '}{following}
-      {user.following ? user.following.length : ' '}{followers}
+      {user.tweets && user.tweets.length}{tweets}
+      {user.follower && user.follower.length }{following}
+      {user.following && user.following.length}{followers}
     </div>
   )
 }

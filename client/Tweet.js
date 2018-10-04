@@ -7,7 +7,7 @@ const Tweet = (props) => {
   return (
     <div key={tweet.id}>
       <div className = "single-tweet">
-        <h5><i>{tweet.user ? tweet.user.name : ''}{' '}{moment(tweet.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</i></h5>
+        <h5><i>{tweet.user && tweet.user.name }{' '}{moment(tweet.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</i></h5>
         <p>{tweet.tweet}</p>
       </div>
     </div>
