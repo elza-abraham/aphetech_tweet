@@ -42,6 +42,9 @@ export default class MainPage extends Component {
   }
 
   render () {
+    // console.log(this.state.user)
+    // console.log(this.state.tweets)
+
     return (
       <div id="main">
         <Profile user ={this.state.user} />
