@@ -56,21 +56,6 @@ router.get('/profile', async (req, res, next) => {
     next(err)
   }
 })
-// router.get('/profile', async (req, res, next) => {
-//   try {
-//     const user = await User.findById(1)
-//     res.json(user)
-//   } catch (err) {
-//     next(err)
-//   }
-// })
-
-// router.get('/profile', (req, res, next) => {
-//   User.findAll()
-//     .then(tweets => res.json(tweets))
-//     .catch(next)
-// })
-
 
 router.post('/', async (req, res, next) => {
   try {

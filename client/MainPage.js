@@ -10,7 +10,6 @@ export default class MainPage extends Component {
     this.state = {
       tweets: [],
       user: {},
-      userTweetLength: 0
     }
   }
 
@@ -33,18 +32,14 @@ export default class MainPage extends Component {
     tweetsTemp.unshift(tweet)
     this.setState({
       tweets: tweetsTemp,
-      userTweetLength:  this.state.userTweetLength + 1
+      user: {...this.state.user, tweets: [...this.state.user.tweets, tweet]},
     });
-  }
-
-  getTweetCount = () => {
-    return this.state.tweets.length
   }
 
   render () {
     return (
       <div id="main">
-        <Profile user ={this.state.user} userTweetLength = {this.state.userTweetLength} tweetCount = {this.getTweetCount()} />
+        <Profile user ={this.state.user} />
         <div id = "tweet">
           <AddTweet addTweet={this.addTweet} />
           {
