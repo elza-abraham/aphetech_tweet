@@ -13,25 +13,29 @@ export default class MainPage extends Component {
     }
   }
 
+  getAllTweets = async () => {
+    const resTweet = await axios.get('/api/main/feed');
+    return resTweet.data;
+  }
+
   async componentDidMount () {
     //AJAX call to get tweets of user and people whom he/she is following
-    const resTweet = await axios.get('/api/main/feed');
+    const tweets = await this.getAllTweets()
 
     //AJAX call to get current user profile with included tweets of user only
     const resUser = await axios.get('/api/main/profile')
 
     this.setState({
-      tweets: resTweet.data,
-      userTweetLength: resUser.data.tweets.length,
+      tweets: tweets,
       user: resUser.data
     });
   }
 
-  addTweet = (tweet) => {
-    let tweetsTemp = this.state.tweets;
-    tweetsTemp.unshift(tweet)
+  addTweet = async (tweet) => {
+    const tweets = await this.getAllTweets()
+
     this.setState({
-      tweets: tweetsTemp,
+      tweets: tweets,
       user: {...this.state.user, tweets: [...this.state.user.tweets, tweet]},
     });
   }
