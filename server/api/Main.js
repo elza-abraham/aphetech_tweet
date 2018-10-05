@@ -27,8 +27,9 @@ router.get('/feed', async (req, res, next) => {
         'createdAt', 'DESC'
       ]],
       where: {
-        userId:
-        {$in: followerId}
+        userId: {
+          $in: followerId
+        }
       }
     })
     res.json(tweets)

@@ -23,7 +23,7 @@ export default class MainPage extends Component {
 
     const tweets = await this.getAllTweets()
 
-    //AJAX call to get current user profile with included tweets of user only
+    //AJAX call to get current user profile with followers and tweets of user only
     const resUser = await axios.get('/api/main/profile')
 
     this.setState({
