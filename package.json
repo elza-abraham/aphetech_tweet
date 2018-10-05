@@ -7,12 +7,14 @@
     "start": "npm run start-server & npm run build-watch",
     "start-server": "nodemon --watch server -e js,html server/Main.js",
     "build-watch": "webpack -w",
-    "seed": "node ./bin/seed"
+    "seed": "node ./bin/seed",
+    "test": "mocha"
   },
   "author": "Elza",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.17.1",
+    "chai-as-promised": "^7.1.1",
     "express": "^4.16.2",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
@@ -29,6 +31,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.14.11",
     "webpack": "^3.10.0"
   }
