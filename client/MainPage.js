@@ -4,13 +4,21 @@ import Tweet from './Tweet'
 import Profile from './Profile'
 import AddTweet from './AddTweet'
 
+import Infinite from 'react-infinite-loading';
+
+
 export default class MainPage extends Component {
   constructor () {
     super()
     this.state = {
       tweets: [],
       user: {},
+      loading: false
     }
+  }
+
+  handleLoading = () => {
+    this.setState({loading: true});
   }
 
   getAllTweets = async () => {
@@ -46,16 +54,22 @@ export default class MainPage extends Component {
     // console.log(this.state.tweets)
 
     return (
-      <div id="main">
-        <Profile user ={this.state.user} />
-        <div id = "tweet">
-          <AddTweet addTweet={this.addTweet} />
-          {
-            //separate component for each tweet later if we want to handle(expand, delete) each tweets
-            this.state.tweets.map(tweet => <Tweet tweet={tweet} key={tweet.id} />)
-          }
+      <div>
+        <h1>Aphetech</h1>
+        <div id="main">
+          <Profile user ={this.state.user} />
+          <div id = "tweet">
+            <AddTweet addTweet={this.addTweet} />
+            <Infinite handleLoading={this.handleLoading} loading={this.state.loading} elementScroll scrollHeight={300}>
+            {
+              //separate component for each tweet later if we want to handle(expand, delete) each tweets
+              this.state.tweets.map(tweet => <Tweet tweet={tweet} key={tweet.id} />)
+            }
+            </Infinite>
+          </div>
         </div>
       </div>
     );
   }
 }
+
