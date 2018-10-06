@@ -32,7 +32,7 @@ export default class MainPage extends Component {
     });
   }
 
-  addTweet = async (tweet) => {
+  addTweet = async (tweet) => { // instead of concating to state.tweets, another ajax request to get the tweets from those followed by user.
     const tweets = await this.getAllTweets()
 
     this.setState({

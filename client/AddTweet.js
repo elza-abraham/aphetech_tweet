@@ -11,6 +11,12 @@ export default class AddTweet extends Component {
     }
   }
 
+  // //ES6 syntax
+  // stat = {
+  //   tweet: '',
+  //   errorMessage: ''
+  // }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value

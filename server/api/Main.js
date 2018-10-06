@@ -4,6 +4,12 @@ const getSession  = require('./getSession')
 
 const currUserId  = getSession()
 
+// router.get('/', (req, res, next) => {
+//   Tweet.findAll()
+//     .then(tweets => res.json(tweets))
+//     .catch(next)
+// })
+
 router.get('/feed', async (req, res, next) => {
   try {
     const followingUsers = await User.find({
