@@ -30,6 +30,13 @@ app.use((req, res, next) => {
   }
 })
 
+// // Handle 404s
+// app.use((req, res, next) => {
+//   const err = new Error('Not Found')
+//   err.status = 404
+//   next(err)
+// })
+
 // Sends our index.html (the "single page" of our SPA)
 app.get('/', (req, res, next) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'index.html'))

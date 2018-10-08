@@ -55,3 +55,7 @@ img {
   flex-direction: row;
   align-items: center;
 }
+
+.error {
+  background-color: red;
+}
